@@ -108,30 +108,30 @@ while consulta:
             excel.append(['Data de abertura', 'Cnpj', 'Razão social', 'Nome fantasia', 'Porte', 'Natureza jurídica',
                           'Atividade Principal', 'Atividades secundarias', 'Qsa', 'Telefone', 'E-mail', 'Cep', 'Uf',
                           'Município', 'Bairro', 'Logradouro', 'Número', 'Complemento', 'Tipo', 'Capital Social'])
+        finally:
+            excel = df['Sheet']
+            excel.append([str(info['ABERTURA']),
+                          str(info['CNPJ']),
+                          str(info['NOME']),
+                          str(info['FANTASIA']),
+                          str(info['PORTE']),
+                          str(info['NATUREZA_JURIDICA']),
+                          str(info['ATIVIDADE_PRINCIPAL']),
+                          str(info['ATIVIDADES_SECUNDARIAS']),
+                          str(info['QSA']),
+                          str(info['TELEFONE']),
+                          str(info['EMAIL']),
+                          str(info['CEP']),
+                          str(info['UF']),
+                          str(info['MUNICIPIO']),
+                          str(info['BAIRRO']),
+                          str(info['LOGRADOURO']),
+                          str(info['NUMERO']),
+                          str(info['COMPLEMENTO']),
+                          str(info['TIPO']),
+                          str(info['CAPITAL_SOCIAL'])])
 
-        excel = df['Sheet']
-        excel.append([str(info['ABERTURA']),
-                      str(info['CNPJ']),
-                      str(info['NOME']),
-                      str(info['FANTASIA']),
-                      str(info['PORTE']),
-                      str(info['NATUREZA_JURIDICA']),
-                      str(info['ATIVIDADE_PRINCIPAL']),
-                      str(info['ATIVIDADES_SECUNDARIAS']),
-                      str(info['QSA']),
-                      str(info['TELEFONE']),
-                      str(info['EMAIL']),
-                      str(info['CEP']),
-                      str(info['UF']),
-                      str(info['MUNICIPIO']),
-                      str(info['BAIRRO']),
-                      str(info['LOGRADOURO']),
-                      str(info['NUMERO']),
-                      str(info['COMPLEMENTO']),
-                      str(info['TIPO']),
-                      str(info['CAPITAL_SOCIAL'])])
-
-        df.save(r'.\consulta-cnpj.xlsx')
+            df.save(r'.\consulta-cnpj.xlsx')
 
     consulta = input('Gostaria de consultar outro CNPJ? [S/N] ').strip().upper()
     if consulta == 'S':
